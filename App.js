@@ -40,6 +40,14 @@ async function loadResourcesAsync() {
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      'consola': require('./assets/fonts/consola.ttf'),
+      'consola-bold': require('./assets/fonts/consolab.ttf'),
+      'consola-italic': require('./assets/fonts/consolai.ttf'),
+      'consola-italic-bold': require('./assets/fonts/consolaz.ttf'),
+      'effects-eighty': require('./assets/fonts/EffectsEighty.ttf'),
+      'effects-eighty-bold': require('./assets/fonts/EffectsEightyBold.ttf'),
+      'effects-eighty-italic-bold': require('./assets/fonts/EffectsEightyBoldItalic.ttf'),
+      'effects-eighty-italic': require('./assets/fonts/EffectsEightyItalic.ttf'),
     }),
   ]);
 }
