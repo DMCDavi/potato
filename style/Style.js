@@ -8,7 +8,7 @@ export default StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#000',
     },
     icon_med_align: {
         alignItems: 'center',
@@ -41,7 +41,7 @@ export default StyleSheet.create({
         marginBottom: 5
     },
     view_text_inputs: {
-        marginTop: 6,
+        marginTop: 20,
         width: '100%',
         paddingHorizontal: 20,
     },
@@ -50,28 +50,25 @@ export default StyleSheet.create({
         borderRadius: 8,
         paddingLeft: 15,
         paddingRight: 15,
-        shadowColor: '#000000',
-        shadowOffset: { width: 5, height: 3 },
-        shadowOpacity: 0.2,
-        shadowRadius: 8,
-        backgroundColor: '#fff',
-        borderColor: '#EEEEEE',
+        backgroundColor: '#000',
+        borderColor: '#00FF41',
         borderWidth: 1,
-        elevation: 7,
-        fontFamily: 'Poppins-Regular',
         fontSize: 16,
+        fontFamily: "space-mono",
+        color: '#00FF41',
     },
     view_button_submit: {
-        marginVertical: 18,
-        width: '100%',
-        paddingHorizontal: 100,
+        flex: 1,
+        paddingHorizontal: 10,
     },
     button_submit: {
         height: 51,
         borderRadius: 8,
         alignItems: 'center',
-        backgroundColor: '#48AAD4',
+        backgroundColor: '#000',
         justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: "#00FF41"
     },
     text_submit: {
         color: '#ffffff',
@@ -292,13 +289,13 @@ export default StyleSheet.create({
     },
     view_card_medicine: {
         flexDirection: 'row',
-        borderColor: '#DDDDDD',
+        borderColor: '#00FF41',
         borderStyle: 'solid',
         marginHorizontal: 20,
         borderBottomWidth: 1,
         padding: 10,
         alignItems: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: '#000'
     },
     touch_card_medicine: {
         flex: 1,
@@ -404,7 +401,6 @@ export default StyleSheet.create({
     img_clinic: {
         width: '100%',
         height: 286,
-        position: 'absolute',
     },
     text_name_clinic: {
         width: 200,
@@ -428,7 +424,7 @@ export default StyleSheet.create({
         height: '100%'
     },
     view_text_clinic: {
-        marginBottom: 30,
+        margin: 30,
     },
     text1_clinic: {
         color: '#ffffff',

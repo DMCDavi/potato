@@ -7,6 +7,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -22,16 +23,8 @@ const HomeStack = createStackNavigator(
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
+  tabBarIcon: ({ tintColor, focused }) =>
+    <Icon name="format-list-checks" size={focused ? 26 : 24} color={tintColor} />,
 };
 
 HomeStack.path = '';
@@ -45,9 +38,8 @@ const LinksStack = createStackNavigator(
 
 LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  ),
+  tabBarIcon: ({ tintColor, focused }) =>
+    <Icon name="account-group" size={focused ? 26 : 24} color={tintColor} />,
 };
 
 LinksStack.path = '';
@@ -61,9 +53,8 @@ const SettingsStack = createStackNavigator(
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-  ),
+  tabBarIcon: ({ tintColor, focused }) =>
+    <Icon name="crown" size={focused ? 26 : 24} color={tintColor} />,
 };
 
 SettingsStack.path = '';
@@ -72,7 +63,24 @@ const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
-});
+},
+  {
+    tabBarOptions: {
+      showIcon: true,
+      showLabel: false,
+      activeTintColor: "#00FF41",
+      indicatorStyle: {
+        height: 2,
+        backgroundColor: "#fff"
+      },
+      style: {
+        backgroundColor: '#000',
+        borderColor: "#00FF41",
+        borderTopWidth: 1,
+        borderTopColor: "#00FF41"
+      }
+    }
+  });
 
 tabNavigator.path = '';
 
