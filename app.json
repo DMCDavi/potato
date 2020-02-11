@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "med",
-    "slug": "med",
+    "name": "Potato",
+    "slug": "Potato",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -11,11 +11,11 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon_med.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +24,7 @@
       "**/*"
     ],
     "android": {
-      "package": "com.cimatecjr.medmais",
+      "package": "com.tdsistemas.potato",
       "googleServicesFile": "./google-services.json",
       "config": {
         "googleMaps": {
@@ -34,7 +34,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.cimatecjr.medmais"
+      "bundleIdentifier": "com.tdsistemas.potato"
     }
   }
 }
