@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1013543666669",
+    "firebase_url": "https://medmais-258722.firebaseio.com",
+    "project_id": "medmais-258722",
+    "storage_bucket": "medmais-258722.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013543666669:android:97bb4b79fe4031ec725de4",
+        "android_client_info": {
+          "package_name": "com.cimatecjr.medmais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1013543666669-k3285fovbtceeg9b5rr9n4ol2r9o3t8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cimatecjr.medmais",
+            "certificate_hash": "546f3bf08ca744cf49159ae4e1176967ac7222a3"
+          }
+        },
+        {
+          "client_id": "1013543666669-nptslsv9rve2c45nkm53578tvenulppn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANdKNOTp49BasYTlY5CmhhQBb6KtXlSJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1013543666669-nptslsv9rve2c45nkm53578tvenulppn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
