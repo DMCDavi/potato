@@ -101,12 +101,12 @@ export default class PranksList extends Component {
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Tirar uma foto com Atari</MonoText>
+              <MonoText style={Style.text_name_medicine}>Tirar uma foto com Atari, ambos de camisa social</MonoText>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Tirar uma foto com as gêmeas Nina e Bel (JUNTAS)</MonoText>
+              <MonoText style={Style.text_name_medicine}>Tirar uma foto com as gêmeas (JUNTAS)</MonoText>
             </View>
           </TouchableOpacity>
           <View style={Style.view_text_inputs} >
