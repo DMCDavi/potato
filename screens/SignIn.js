@@ -14,6 +14,7 @@ import * as yup from "yup";
 import { Formik } from "formik";
 import { MonoText } from "../components/StyledText";
 import axios from "axios";
+import GLOBALS from "../constants/Globals";
 
 const FieldWrapper = ({ children, label, formikProps, formikKey }) => (
   <View style={{ marginHorizontal: 20, marginVertical: 1 }}>
@@ -82,10 +83,11 @@ export default class SignIn extends Component {
       password: this.state.values.password
     })
       .then(response => {
+	GLOBALS.ID = response.data.id;
+	GLOBALS.SCORE = response.data.score;
         this.props.navigation.navigate("PranksList");
       })
       .catch(err => {
-        console.log("Erro: " + JSON.stringify(err.response.data));
         this.state.invalid_session = true;
       });
   }
@@ -152,14 +154,10 @@ export default class SignIn extends Component {
                     <View style={Style.view_button_submit}>
                       <TouchableOpacity
                         style={Style.button_submit}
-                        /*onPress={
-                          formikProps.handleSubmit
-                        }*/
                         onPress={
-                          () => this.props.navigation.navigate("PranksList")
+                          formikProps.handleSubmit
                         }
                       >
-
                         <MonoText style={Style.text_submit}>
                           Entrar
                         </MonoText>

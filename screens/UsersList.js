@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 
 import Style from '../style/Style'
@@ -36,6 +37,16 @@ export default class UsersList extends Component {
     return (
       <View style={Style.container}>
         <MonoText style={Style.screenTitle}> CALOUROS </MonoText>
+<View style={Style.view_button_submit}>
+                      <TouchableOpacity
+                        style={Style.button_submit}
+                        onPress={() => this.getUsers()}
+                      >
+                        <MonoText style={Style.text_submit}>
+                          Atualizar
+                        </MonoText>
+                      </TouchableOpacity>
+                    </View>
         <FlatList
           data={this.state.data}
           keyExtractor={item => `${item.id}`}

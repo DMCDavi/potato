@@ -109,9 +109,7 @@ export default class SignUp extends Component {
       
         api.post("/register", data)
         .then(response => {
-          GLOBALS.EMAIL = response.data.email;
-          GLOBALS.ID = response.data.id;
-          GLOBALS.USERNAME = response.data.name;
+	alert("Conta criada com sucesso!!");
         })
         .catch(err => {
           console.log("Erro: " + JSON.stringify(err.response.data));

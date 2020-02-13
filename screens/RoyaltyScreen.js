@@ -10,24 +10,6 @@ import { MonoText } from '../components/StyledText';
 
 export default class RoyaltyScreen extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      pranksDone: 0,
-    };
-  }
-
-  increaseStore() {
-    let aux = this.state.pranksDone + 1;
-    this.setState({ pranksDone: this.state.pranksDone + 1 });
-    alert('Você cumpriu ' + aux + ' trote(s) hoje!');
-  }
-
-  resetStore() {
-    this.setState({ pranksDone: 0 });
-    alert('Trotes de hoje zerados!');
-  }
-
   render() {
     return (
       <View style={Style.container}>
@@ -96,6 +78,24 @@ export default class RoyaltyScreen extends Component {
             <MonoText style={Style.text1_clinic}>Farinha</MonoText>
             <MonoText style={Style.text1_clinic}>
               Uma das pessoas mais radioativas do SENAI, Fernandinha tem a capacidade de transformar em perguntas o que deveriam ser as respostas. Cuidado, pois seu comportameno tóxico pode acabar indo longe demais!
+            </MonoText>
+          </View>
+<View style={{ width: '100%', height: 400, }}>
+            <Image source={require('../assets/images/bia.jpg')} style={Style.img_clinic} />
+          </View>
+          <View style={Style.view_text_clinic}>
+            <MonoText style={Style.text1_clinic}>Bia</MonoText>
+            <MonoText style={Style.text1_clinic}>
+              Essa é Bia, também conhecida como a mendiga do AlphaVille. Ela ficou com preguiça demais para inventar uma descrição.
+            </MonoText>
+          </View>
+<View style={{ width: '100%', height: 400, }}>
+            <Image source={require('../assets/images/joao.jpg')} style={Style.img_clinic} />
+          </View>
+          <View style={Style.view_text_clinic}>
+            <MonoText style={Style.text1_clinic}>João</MonoText>
+            <MonoText style={Style.text1_clinic}>
+              Esse é João, nunca confie na call dele. É isto!
             </MonoText>
           </View>
         </ScrollView>

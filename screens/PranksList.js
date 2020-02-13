@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Style from '../style/Style'
 import { MonoText } from '../components/StyledText';
 import GLOBALS from "../constants/Globals";
+import axios from "axios";
 
 export default class PranksList extends Component {
 
@@ -19,22 +20,44 @@ export default class PranksList extends Component {
     this.state = {
       pranksDone: 0,
       pass: '',
+      score: GLOBALS.SCORE,
     };
   }
 
+
+  async increaseScore() {
+    axios.put("https://potato-back.herokuapp.com/espertinho/" + GLOBALS.ID, {new_score: this.state.score + 10})
+	.then(response => {
+	this.setState({score: this.state.score + 10 });
+	alert('SE FODEU HAHAHAH');
+      })
+      .catch(err => {
+	alert('Não foi possível atualizar seus dados, cheque sua conexão de internet');
+      });
+  }
+
+  async decreaseScore() {
+    axios.put("https://potato-back.herokuapp.com/espertinho/" + GLOBALS.ID, {new_score: this.state.score - this.state.pranksDone})
+	.then(response => {
+	this.setState({score: this.state.score - this.state.pranksDone });
+	alert('Seus dados foram enviados para o banco de dados');
+      })
+      .catch(err => {
+	alert('Não foi possível atualizar seus dados, cheque sua conexão de internet');
+      });
+  }
+
   increaseStore() {
-    let aux = this.state.pranksDone + 1;
     this.setState({ pranksDone: this.state.pranksDone + 1 });
-    alert('Você cumpriu ' + aux + ' trote(s) hoje!');
   }
 
   resetStore() {
     this.setState({ pranksDone: 0 });
-    alert('Trotes de hoje zerados!');
   }
 
   prank() {
-    if (this.state.pass == GLOBALS.PRANK_PASS) alert('Seus dados foram enviados para o banco de dados');
+    if (this.state.pass == "espertinho") this.decreaseScore();
+	else if(this.state.pass == "sefodeu") this.increaseScore();
     else alert('VOCÊ TA TENTANDO ROUBAR???!');
   }
 
@@ -42,7 +65,7 @@ export default class PranksList extends Component {
     return (
       <View style={Style.container}>
         <MonoText style={Style.screenTitle}> TROTES </MonoText>
-        {/* <MonoText style={{ ...Style.screenTitle, marginTop: 0 }}> 33/33 </MonoText> */}
+        <MonoText style={{ ...Style.screenTitle, marginTop: 0 }}> OVADAS: {this.state.score} </MonoText>
         <ScrollView>
           <View style={Style.view_card_medicine}>
             <View style={{ flex: 1 }}>
@@ -109,7 +132,8 @@ export default class PranksList extends Component {
               <MonoText style={Style.text_name_medicine}>Tirar uma foto com as gêmeas (JUNTAS)</MonoText>
             </View>
           </TouchableOpacity>
-          <View style={Style.view_text_inputs} >
+	<MonoText style={Style.screenTitle}>HOJE: {this.state.pranksDone} </MonoText>
+          <View style={{...Style.view_text_inputs, marginTop: 0}} >
             <TextInput
               style={Style.text_inputs}
               autoCompleteType='password'
@@ -119,7 +143,7 @@ export default class PranksList extends Component {
               onChangeText={(txt) => this.setState({ pass: txt })}
             />
           </View>
-          <View style={{ flexDirection: "row", padding: 20 }}>
+          <View style={{ flexDirection: "row", paddingVertical: 20 }}>
             <View style={Style.view_button_submit}>
               <TouchableOpacity
                 style={Style.button_submit}
