@@ -26,114 +26,118 @@ export default class PranksList extends Component {
 
 
   async increaseScore() {
-    axios.put("https://potato-back.herokuapp.com/espertinho/" + GLOBALS.ID, {new_score: this.state.score + 10})
-	.then(response => {
-	this.setState({score: this.state.score + 10 });
-	alert('SE FODEU HAHAHAH');
+    axios.put("https://potato-back.herokuapp.com/espertinho/" + GLOBALS.ID, { new_score: this.state.score + 10 })
+      .then(response => {
+        this.setState({ score: this.state.score + 10 });
+        this.setState({ pass: "" })
+        this.resetPranksDone();
+        alert('SE FODEU HAHAHAH');
       })
       .catch(err => {
-	alert('Não foi possível atualizar seus dados, cheque sua conexão de internet');
+        alert('Não foi possível atualizar seus dados, cheque sua conexão de internet');
       });
   }
 
   async decreaseScore() {
-    axios.put("https://potato-back.herokuapp.com/espertinho/" + GLOBALS.ID, {new_score: this.state.score - this.state.pranksDone})
-	.then(response => {
-	this.setState({score: this.state.score - this.state.pranksDone });
-	alert('Seus dados foram enviados para o banco de dados');
+    axios.put("https://potato-back.herokuapp.com/espertinho/" + GLOBALS.ID, { new_score: this.state.score - this.state.pranksDone })
+      .then(response => {
+        this.setState({ score: this.state.score - this.state.pranksDone });
+        this.setState({ pass: "" })
+        this.resetPranksDone();
+        alert('Seus dados foram enviados para o banco de dados');
       })
       .catch(err => {
-	alert('Não foi possível atualizar seus dados, cheque sua conexão de internet');
+        alert('Não foi possível atualizar seus dados, cheque sua conexão de internet');
       });
   }
 
-  increaseStore() {
+  increasePranksDone() {
     this.setState({ pranksDone: this.state.pranksDone + 1 });
   }
 
-  resetStore() {
+  resetPranksDone() {
     this.setState({ pranksDone: 0 });
   }
 
-  prank() {
+  validate() {
     if (this.state.pass == "espertinho") this.decreaseScore();
-	else if(this.state.pass == "sefodeu") this.increaseScore();
+    else if (this.state.pass == "sefodeu") this.increaseScore();
     else alert('VOCÊ TA TENTANDO ROUBAR???!');
   }
 
   render() {
     return (
       <View style={Style.container}>
-        <MonoText style={Style.screenTitle}> TROTES </MonoText>
-        <MonoText style={{ ...Style.screenTitle, marginTop: 0 }}> OVADAS: {this.state.score} </MonoText>
+        <MonoText style={Style.screen_title}> TROTES </MonoText>
+        <MonoText style={{ ...Style.screen_title, marginTop: 0 }}> OVADAS: {this.state.score} </MonoText>
         <ScrollView>
-          <View style={Style.view_card_medicine}>
+          <View style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Não pode usar o elevador</MonoText>
+              <MonoText style={Style.text_name_prank}>Não pode usar o elevador</MonoText>
             </View>
           </View>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Doar alimentos</MonoText>
+              <MonoText style={Style.text_name_prank}>Doar alimentos</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Plaquinha escrito: "SÓ FAÇO POG"</MonoText>
+              <MonoText style={Style.text_name_prank}>Plaquinha escrito: "SÓ FAÇO POG"</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Ecrever no corpo: "#EUAMOLAPA"</MonoText>
+              <MonoText style={Style.text_name_prank}>Ecrever no corpo: "#EUAMOLAPA"</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Cabos amarrados pelo corpo</MonoText>
+              <MonoText style={Style.text_name_prank}>Cabos amarrados pelo corpo</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Foto criativa no Instagram</MonoText>
+              <MonoText style={Style.text_name_prank}>Foto criativa no Instagram</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Foto criativa no Facebook</MonoText>
+              <MonoText style={Style.text_name_prank}>Foto criativa no Facebook</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Camisa por dentro da calça</MonoText>
+              <MonoText style={Style.text_name_prank}>Camisa por dentro da calça</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Meia por cima da calça</MonoText>
+              <MonoText style={Style.text_name_prank}>Meia por cima da calça</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Sapatos de pares diferentes</MonoText>
+              <MonoText style={Style.text_name_prank}>Sapatos de pares diferentes</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Material em saco de lixo</MonoText>
+              <MonoText style={Style.text_name_prank}>Material em saco de lixo</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Tirar uma foto com Atari, ambos de camisa social</MonoText>
+              <MonoText style={Style.text_name_prank}>Tirar uma foto com Atari, ambos de camisa social</MonoText>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.increaseStore()} style={Style.view_card_medicine}>
+          <TouchableOpacity onPress={() => this.increasePranksDone()} style={Style.view_card_prank}>
             <View style={{ flex: 1 }}>
-              <MonoText style={Style.text_name_medicine}>Tirar uma foto com as gêmeas (JUNTAS)</MonoText>
+              <MonoText style={Style.text_name_prank}>Tirar uma foto com as gêmeas (JUNTAS)</MonoText>
             </View>
           </TouchableOpacity>
-	<MonoText style={Style.screenTitle}>HOJE: {this.state.pranksDone} </MonoText>
-          <View style={{...Style.view_text_inputs, marginTop: 0}} >
+          <MonoText style={Style.screen_title}>HOJE: {this.state.pranksDone} </MonoText>
+          <View style={{ ...Style.view_text_inputs, marginTop: 0 }} >
             <TextInput
               style={Style.text_inputs}
               autoCompleteType='password'
@@ -141,21 +145,22 @@ export default class PranksList extends Component {
               autoCapitalize='none'
               secureTextEntry={true}
               onChangeText={(txt) => this.setState({ pass: txt })}
+              value={this.state.pass}
             />
           </View>
           <View style={{ flexDirection: "row", paddingVertical: 20 }}>
-            <View style={Style.view_button_submit}>
+            <View style={{...Style.view_button_submit, paddingRight: 10}}>
               <TouchableOpacity
                 style={Style.button_submit}
-                onPress={() => this.resetStore()}
+                onPress={() => this.resetPranksDone()}
               >
                 <MonoText style={Style.text_submit}>Zerar</MonoText>
               </TouchableOpacity>
             </View>
-            <View style={Style.view_button_submit}>
+            <View style={{...Style.view_button_submit, paddingLeft: 10}}>
               <TouchableOpacity
                 style={Style.button_submit}
-                onPress={() => this.prank()}
+                onPress={() => this.validate()}
               >
                 <MonoText style={Style.text_submit}>Validar</MonoText>
               </TouchableOpacity>

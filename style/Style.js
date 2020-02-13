@@ -6,16 +6,12 @@ export default StyleSheet.create({
         backgroundColor: '#000',
     },
     text3_login: {
-        color: '#979797',
         fontSize: 11,
-        fontWeight: '400',
         marginTop: 10,
         marginHorizontal: 36
     },
     text4_login: {
-        color: '#979797',
         fontSize: 11,
-        fontWeight: '400',
         marginTop: 5,
         marginHorizontal: 16,
         marginBottom: 5
@@ -51,23 +47,19 @@ export default StyleSheet.create({
         borderColor: "#00FF41"
     },
     text_submit: {
-        color: '#ffffff',
         fontSize: 16,
-        fontWeight: '400',
     },
     text_error: {
-        color: '#ff102b',
         fontSize: 13,
-        fontWeight: '400',
         marginHorizontal: 15,
         alignSelf: 'flex-start'
     },
-    screenTitle: {
+    screen_title: {
         fontSize: 32,
         margin: 20,
         textAlign: 'center',
     },
-    view_card_medicine: {
+    view_card_prank: {
         flexDirection: 'row',
         borderColor: '#00FF41',
         borderStyle: 'solid',
@@ -77,19 +69,18 @@ export default StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#000'
     },
-    text_name_medicine: {
+    text_name_prank: {
         color: '#000000',
         fontSize: 22,
     },
-    img_clinic: {
+    img_royal: {
         width: '100%',
         height: 400,
     },
-    view_text_clinic: {
+    view_text_royal: {
         margin: 30,
     },
-    text1_clinic: {
-        color: '#ffffff',
+    text_royal: {
         fontSize: 19,
         textAlign: 'center',
     },

@@ -36,28 +36,28 @@ export default class UsersList extends Component {
   render() {
     return (
       <View style={Style.container}>
-        <MonoText style={Style.screenTitle}> CALOUROS </MonoText>
-<View style={Style.view_button_submit}>
-                      <TouchableOpacity
-                        style={Style.button_submit}
-                        onPress={() => this.getUsers()}
-                      >
-                        <MonoText style={Style.text_submit}>
-                          Atualizar
-                        </MonoText>
-                      </TouchableOpacity>
-                    </View>
+        <View>
+          <MonoText style={Style.screen_title}> CALOUROS </MonoText>
+          <View style={{paddingHorizontal: 20, paddingBottom: 20}}>
+            <TouchableOpacity
+              style={Style.button_submit}
+              onPress={() => this.getUsers()}
+            >
+              <MonoText style={Style.text_submit}>Atualizar</MonoText>
+            </TouchableOpacity>
+          </View>
+        </View>
         <FlatList
           data={this.state.data}
           keyExtractor={item => `${item.id}`}
           renderItem={({ item }) =>
             <View
-              style={Style.view_card_medicine}
+              style={Style.view_card_prank}
               key={item.id}
               {...item}>
               <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <MonoText style={Style.text_name_medicine}>{item.username}</MonoText>
-                <MonoText style={Style.text_name_medicine}>{item.score}</MonoText>
+                <MonoText style={Style.text_name_prank}>{item.username}</MonoText>
+                <MonoText style={Style.text_name_prank}>{item.score}</MonoText>
               </View>
             </View>
           }

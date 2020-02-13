@@ -1,4 +1,4 @@
 export default {
-  ID: "",
+  ID: 12,
   SCORE: 0,
 };
